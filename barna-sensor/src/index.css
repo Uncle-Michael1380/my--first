@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@import "@fontsource-variable/estedad";
+
+/*
+  Iran Sans is a licensed font: drop IRANSansX.woff2 into /public/fonts and it
+  is picked up automatically as the display face. Without it, Estedad is used.
+*/
+@font-face {
+  font-family: "IRANSansX";
+  src: url("/fonts/IRANSansX.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+0600-06FF, U+FB50-FDFF, U+FE70-FEFF, U+200C-200D;
+}
+
+@theme {
+  /* 4-colour palette. Contrast on ink: text 16.2:1, signal 11.3:1, amber 10.6:1 */
+  --color-ink: #0a1418;
+  --color-steel: #12262d;
+  --color-text: #e8f1f2;
+  --color-signal: #3ce0c8;
+  --color-amber: #ffb547;
+
+  --font-display: "IRANSansX", "Estedad Variable", system-ui, sans-serif;
+  --font-body: "Estedad Variable", "IRANSansX", system-ui, sans-serif;
+}
+
+html {
+  background: var(--color-ink);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  scroll-behavior: auto; /* ScrollTrigger needs native, un-smoothed scroll */
+}
+body {
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+:focus-visible {
+  outline: 3px solid var(--color-amber);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+.skip-link {
+  position: fixed;
+  inset-inline-start: 1rem;
+  top: -4rem;
+  z-index: 100;
+  background: var(--color-amber);
+  color: var(--color-ink);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+.dot-grid {
+  background-image: radial-gradient(rgb(60 224 200 / 0.16) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse at 30% 50%, #000 20%, transparent 75%);
+}
