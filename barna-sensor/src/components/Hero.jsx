@@ -7,6 +7,8 @@ import MagneticButton from "./MagneticButton.jsx";
 import ParticleField from "./ParticleField.jsx";
 import LazyVideo from "./LazyVideo.jsx";
 import SensorIllustration from "./SensorIllustration.jsx";
+import heroVideo from "../assets/hero-loop.mp4";
+import heroPoster from "../assets/hero-poster.jpg";
 
 const ArrowLeft = () => (
   <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -84,8 +86,8 @@ export default function Hero() {
         <div className="dot-grid absolute inset-0" />
         {!mobile && !reduced && (
           <LazyVideo
-            src="/media/hero-loop.mp4"
-            poster="/media/hero-poster.jpg"
+            src={heroVideo}
+            poster={heroPoster}
             className="absolute inset-0 h-full w-full object-cover opacity-30 mix-blend-screen"
           />
         )}
